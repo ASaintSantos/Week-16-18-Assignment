@@ -1,0 +1,40 @@
+
+
+.App-header {
+  background: rgb(0,0,0);
+  background: linear-gradient(163deg, rgba(0,0,0,1) 0%, rgba(105,110,102,1) 50%, rgba(171,171,171,1) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.aboutpage {
+  margin: 1px;
+}
+
+.valuespage {
+  margin: 1px;
+}
+
+.homepage {
+  border: solid darkslategrey 2px;
+  margin: 1px;
+}
+
