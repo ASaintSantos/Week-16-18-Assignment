@@ -10,7 +10,7 @@ function FeedbackForm() {
     
     <br></br>
     
-      <FloatingLabel controlId="floatingTextarea2" label="Comments">
+      <FloatingLabel controlId="floatingTextarea2">
       
         <Form.Control
         

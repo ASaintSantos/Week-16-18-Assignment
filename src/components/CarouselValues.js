@@ -33,14 +33,14 @@ These values guide our beliefs, actions, and decisions as we seek to live out ou
         <Col>
           <h2 className='text-center'>1. Living For The King</h2>
           <p className='text-center'>At Life Church, we are committed to living for King Jesus in every aspect of our lives. We believe that Jesus Christ is not only our Savior but also our Lord and King. Therefore, we strive to align our thoughts, words, and actions with His teachings and example. Our desire is to glorify Him in everything we do, whether it's worshipping together as a community, serving others with love and compassion, or sharing the good news of salvation with those around us. We are called to be ambassadors of His kingdom, shining His light in a world that desperately needs hope and redemption. As we follow King Jesus, we find purpose, joy, and fulfillment in fulfilling His will and advancing His kingdom here on earth. May our lives be a testimony to His reign and may His name be exalted above all.</p><br></br>
-          <Image src="https://preview.redd.it/thought-i-would-share-with-yall-an-art-made-by-midjourney-v0-gnck5tqh3oda1.png?auto=webp&s=14917033241ada3be94f1c7fd94886437d39f32b" style={{marginLeft:"60px", padding:"80px"}} alt="Customer Focus" fluid />
+          <Image src="https://preview.redd.it/thought-i-would-share-with-yall-an-art-made-by-midjourney-v0-gnck5tqh3oda1.png?auto=webp&s=14917033241ada3be94f1c7fd94886437d39f32b" className='text-center'  alt="Customer Focus" fluid />
         </Col>
       </Row>
       <Row>
         <Col>
           <h2 className='text-center'>2. Integrity</h2>
           <p className='text-center'>At Life Church, we hold integrity as a core value, steadfast in our commitment to honesty, transparency, and moral uprightness in all our dealings. We believe that living with integrity reflects the character of Christ and strengthens the foundation of our faith community.</p><br></br>
-          <Image src="https://2.bp.blogspot.com/-rDc6XvZMokA/WFNpdpyUguI/AAAAAAAADNg/Qa6jwA6qtkIJP_ixcgZymXXFxO-YXIGjgCLcB/s1600/351%2BMultitudes.jpg" style={{marginLeft:"400px"}} alt="Integrity" fluid />
+          <Image src="https://2.bp.blogspot.com/-rDc6XvZMokA/WFNpdpyUguI/AAAAAAAADNg/Qa6jwA6qtkIJP_ixcgZymXXFxO-YXIGjgCLcB/s1600/351%2BMultitudes.jpg" className='text-center'  alt="Integrity" fluid />
         </Col>
       </Row>
       <Row>
@@ -64,7 +64,7 @@ These values guide our beliefs, actions, and decisions as we seek to live out ou
         <Col>
           <h2 className='text-center'>4. The Heart of Our City</h2>
           <p className='text-center'>At Life Church, we are committed to being the heart of our city, serving as a beacon of hope, compassion, and transformation in our community. We strive to embody the love of Christ by meeting the needs of those around us and actively engaging in initiatives that bring about positive change and restoration.</p><br></br>
-          <Image src="https://i.ytimg.com/vi/vVGzYgQ5dcY/hqdefault_live.jpg" style={{marginLeft:"400px", padding:"150px"}} alt="Collaboration" fluid />
+          <Image src="https://i.ytimg.com/vi/vVGzYgQ5dcY/hqdefault_live.jpg" className='text-center'  alt="Collaboration" fluid />
         </Col>
       </Row>
     </Container>
