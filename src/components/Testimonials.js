@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Button, Modal, Form, Image } from 'react-bootstrap';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({ name: '', content: '' });
+
+  useEffect(() => {
+    const storedTestimonials = localStorage.getItem('testimonials');
+    if (storedTestimonials) {
+      setTestimonials(JSON.parse(storedTestimonials));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('testimonials', JSON.stringify(testimonials));
+  }, [testimonials]);
 
   const handleClose = () => {
     setShowModal(false);
@@ -36,15 +47,13 @@ const Testimonials = () => {
 
   return (
     <Container className='text-center'>
-        
-        <h1 className='text-center'>Share Your Story With Us</h1>
-        
-        <Image style={{paddingTop:"30px"}} src="https://rccgkingdompalace.org/files/threads/1559307093_testimonies.jpg" fluid rounded/>
-        <h2 style={{padding:"20px"}}>The Purpose For This Page</h2>
-        <p style={{padding:"20px"}}>This page was created to allow Believers the opportunity to share what The Lord has done for every individual. These stories are a way to bring encouragement and let His light shine through our lives to draw us closer in our relationship to Him and ultimately bring Glory to His Name.</p>
-        <div style={{padding:"20px"}} className='d-grid'>
-        <Image style={{paddingTop:"30px"}} src="https://scripture-images.us-east-1.linodeobjects.com/images/kjv/desktop_wallpapers_07/Revelation-12-11-KJV-scenic-bible-verse-wallpaper-I66012011-L07.jpg" fluid rounded/>
-      <Button  variant="outline-light" size='lg' onClick={handleShow}>Add Testimony</Button>
+      <h1 className='text-center'>Share Your Story With Us</h1>
+      <Image style={{ paddingTop: "30px" }} src="https://rccgkingdompalace.org/files/threads/1559307093_testimonies.jpg" fluid rounded />
+      <h2 style={{ padding: "20px" }}>The Purpose For This Page</h2>
+      <p style={{ padding: "20px" }}>This page was created to allow Believers the opportunity to share what The Lord has done for every individual. These stories are a way to bring encouragement and let His light shine through our lives to draw us closer in our relationship to Him and ultimately bring Glory to His Name.</p>
+      <div style={{ padding: "20px" }} className='d-grid'>
+        <Image style={{ paddingTop: "30px" }} src="https://scripture-images.us-east-1.linodeobjects.com/images/kjv/desktop_wallpapers_07/Revelation-12-11-KJV-scenic-bible-verse-wallpaper-I66012011-L07.jpg" fluid rounded />
+        <Button variant="outline-light" size='lg' onClick={handleShow}>Add Testimony</Button>
       </div>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
