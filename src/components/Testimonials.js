@@ -7,15 +7,10 @@ const Testimonials = () => {
   const [formData, setFormData] = useState({ name: '', content: '' });
 
   useEffect(() => {
-    const storedTestimonials = localStorage.getItem('testimonials');
-    if (storedTestimonials) {
-      setTestimonials(JSON.parse(storedTestimonials));
-    }
+    fetch('http://localhost:3000/testimony')
+      .then(response => response.json())
+      .then(data => setTestimonials(data));
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('testimonials', JSON.stringify(testimonials));
-  }, [testimonials]);
 
   const handleClose = () => {
     setShowModal(false);
@@ -29,14 +24,27 @@ const Testimonials = () => {
   };
 
   const handleSubmit = () => {
-    setTestimonials([...testimonials, formData]);
-    handleClose();
+    fetch('http://localhost:3000/testimony', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        setTestimonials([...testimonials, data]);
+        handleClose();
+      });
   };
 
-  const handleDelete = index => {
-    const updatedTestimonials = [...testimonials];
-    updatedTestimonials.splice(index, 1);
-    setTestimonials(updatedTestimonials);
+  const handleDelete = id => {
+    fetch(`http://localhost:3000/testimony/${id}`, {
+      method: 'DELETE',
+    }).then(() => {
+      const updatedTestimonials = testimonials.filter(testimonial => testimonial.id !== id);
+      setTestimonials(updatedTestimonials);
+    });
   };
 
   const handleEdit = index => {
@@ -79,10 +87,10 @@ const Testimonials = () => {
 
       <div>
         {testimonials.map((testimonial, index) => (
-          <div key={index}>
+          <div key={testimonial.id}>
             <h3>{testimonial.name}</h3>
             <p>{testimonial.content}</p>
-            <Button variant="danger" onClick={() => handleDelete(index)}>Delete</Button>
+            <Button variant="danger" onClick={() => handleDelete(testimonial.id)}>Delete</Button>
             <Button variant="warning" onClick={() => handleEdit(index)}>Edit</Button>
           </div>
         ))}
