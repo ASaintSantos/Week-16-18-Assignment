@@ -7,10 +7,14 @@ const Testimonials = () => {
   const [formData, setFormData] = useState({ name: '', content: '' });
 
   useEffect(() => {
+    getTestimonials();
+  }, []);
+
+  const getTestimonials = () => {
     fetch('http://localhost:3000/testimony')
       .then(response => response.json())
       .then(data => setTestimonials(data));
-  }, []);
+  }
 
   const handleClose = () => {
     setShowModal(false);
@@ -47,11 +51,31 @@ const Testimonials = () => {
     });
   };
 
-  const handleEdit = index => {
+  const handleEdit = async index => {
     const testimonialToEdit = testimonials[index];
-    setFormData({ name: testimonialToEdit.name, content: testimonialToEdit.content });
+    setFormData({ id: testimonialToEdit.id, name: testimonialToEdit.name, content: testimonialToEdit.content });
     handleShow();
   };
+
+  const handlePut = async () => {
+    let testimonialToEdit = formData;
+  console.log(testimonialToEdit.id)
+  try {
+    let response = await fetch(`http://localhost:3000/testimony/${testimonialToEdit.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(testimonialToEdit) // Your item can go here instead of making the object inline.
+    });
+    let data = await response.json();
+    console.log(data); // Do something with the data here! 
+    getTestimonials();
+} catch (error) {
+    console.error('Error:', error);
+}
+handleClose();
+  }
 
   return (
     <Container className='text-center'>
@@ -81,7 +105,7 @@ const Testimonials = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-          <Button variant="primary" onClick={handleSubmit}>Save</Button>
+          <Button variant="primary" onClick={formData.id ?handlePut : handleSubmit}>Save</Button>
         </Modal.Footer>
       </Modal>
 
